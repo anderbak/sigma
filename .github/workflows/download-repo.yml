@@ -1,0 +1,18 @@
+name: Download Repo
+
+on:
+  push:
+    branches:
+      - main  # Or the branch you want to trigger this on
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Download Repo
+        run: |
+          curl -LOk https://github.com/anderbak/sigma/archive/refs/heads/main.zip
